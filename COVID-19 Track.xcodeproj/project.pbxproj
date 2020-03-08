@@ -143,8 +143,8 @@
 		C6DE309D2414EC0200D1E0A1 /* COVID-19 Track */ = {
 			isa = PBXGroup;
 			children = (
-				C6B5A0C424153BD40068789F /* views */,
 				C6DE30C62415348300D1E0A1 /* COVID-19 Track.entitlements */,
+				C6B5A0C424153BD40068789F /* views */,
 				C65E071124154EFA000C981C /* Inject */,
 				C6DE309E2414EC0200D1E0A1 /* AppDelegate.swift */,
 				C6DE30A02414EC0200D1E0A1 /* SceneDelegate.swift */,
