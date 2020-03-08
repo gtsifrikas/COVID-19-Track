@@ -45,6 +45,7 @@
 		C6DE30B12414EC0600D1E0A1 /* COVID-19 TrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVID-19 TrackTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DE30B52414EC0600D1E0A1 /* COVID_19_TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_19_TrackTests.swift; sourceTree = "<group>"; };
 		C6DE30B72414EC0600D1E0A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6DE30C62415348300D1E0A1 /* COVID-19 Track.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "COVID-19 Track.entitlements"; sourceTree = "<group>"; };
 		CF87B0B6DBF50479E31B5CF9 /* Pods_COVID_19_Track.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_19_Track.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,7 +86,6 @@
 				6D500BB7CA13A2B68643F763 /* Pods-COVID-19 TrackTests.debug.xcconfig */,
 				7DF90784F72F41F283DDED66 /* Pods-COVID-19 TrackTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -112,6 +112,7 @@
 		C6DE309D2414EC0200D1E0A1 /* COVID-19 Track */ = {
 			isa = PBXGroup;
 			children = (
+				C6DE30C62415348300D1E0A1 /* COVID-19 Track.entitlements */,
 				C6DE309E2414EC0200D1E0A1 /* AppDelegate.swift */,
 				C6DE30A02414EC0200D1E0A1 /* SceneDelegate.swift */,
 				C6DE30A22414EC0200D1E0A1 /* ViewController.swift */,
@@ -162,6 +163,7 @@
 				C6DE30AD2414EC0600D1E0A1 /* Sources */,
 				C6DE30AE2414EC0600D1E0A1 /* Frameworks */,
 				C6DE30AF2414EC0600D1E0A1 /* Resources */,
+				E7AA926FF9A344E2B4D9F690 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -289,6 +291,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7AA926FF9A344E2B4D9F690 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVID-19 TrackTests/Pods-COVID-19 TrackTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -461,6 +478,7 @@
 			baseConfigurationReference = 5063F8FA6214EAF35B008029 /* Pods-COVID-19 Track.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "COVID-19 Track/COVID-19 Track.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BSCYSSA7CD;
 				INFOPLIST_FILE = "COVID-19 Track/Info.plist";
@@ -468,8 +486,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gtsifrikas.COVID-19-Track";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -480,6 +500,7 @@
 			baseConfigurationReference = A7F0393FB624BAC1C3541FCC /* Pods-COVID-19 Track.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "COVID-19 Track/COVID-19 Track.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BSCYSSA7CD;
 				INFOPLIST_FILE = "COVID-19 Track/Info.plist";
@@ -487,8 +508,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gtsifrikas.COVID-19-Track";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

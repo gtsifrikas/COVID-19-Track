@@ -11,10 +11,12 @@ target 'COVID-19 Track' do
   use_frameworks!
   
   pod 'RxBluetoothKit'
+  pod 'RxCocoa'
 
   target 'COVID-19 TrackTests' do
     inherit! :search_paths
-    # Pods for testing
+    
+    pod 'RxTest'
   end
 
 end
