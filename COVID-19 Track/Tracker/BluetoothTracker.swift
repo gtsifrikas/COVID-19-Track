@@ -13,10 +13,8 @@ import CoreBluetooth
 import RxRelay
 
 
-
 class BluetoothTracker: Tracker {
     
-    private let serviceUUID = CBUUID(string: "acd58b70-d2c5-4612-91d6-eb4f385c2414")
     private let centralManager = CentralManager(queue: .main)
     
     lazy var interactions: Observable<Interaction> = { _interactions.asObservable() }()
@@ -44,7 +42,7 @@ class BluetoothTracker: Tracker {
         bluetoothReady
             .flatMap { [weak self] _ -> Observable<ScannedPeripheral> in
                 guard let `self` = self else { return .empty() }
-                return self.centralManager.scanForPeripherals(withServices: nil)//
+                return self.centralManager.scanForPeripherals(withServices: [BluetoothBeacon.serviceUUID])
             }
             .flatMap({ (peripheral) -> Observable<Interaction> in
                 

@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		015F9628AAD7E0D704CB6DCE /* Pods_COVID_19_Track.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF87B0B6DBF50479E31B5CF9 /* Pods_COVID_19_Track.framework */; };
 		BDE1D244BD8CDBD24607C908 /* Pods_COVID_19_TrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC2B60927E7855150325D12 /* Pods_COVID_19_TrackTests.framework */; };
 		C624797C241583E700A41898 /* BluetoothTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C624797B241583E700A41898 /* BluetoothTracker.swift */; };
+		C62479802415976F00A41898 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C624797F2415976F00A41898 /* Beacon.swift */; };
+		C62479822415979E00A41898 /* BluetoothBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62479812415979E00A41898 /* BluetoothBeacon.swift */; };
+		C639B20524159F80000BC0A3 /* Pods_COVID_19_Track.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF87B0B6DBF50479E31B5CF9 /* Pods_COVID_19_Track.framework */; };
 		C65E070A24154B75000C981C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E070924154B75000C981C /* HomeViewModel.swift */; };
 		C65E070C24154E94000C981C /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E070B24154E94000C981C /* Tracker.swift */; };
 		C65E070F24154EEF000C981C /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E070D24154EEF000C981C /* Resolver.swift */; };
@@ -43,6 +45,8 @@
 		A7F0393FB624BAC1C3541FCC /* Pods-COVID-19 Track.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Track.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Track/Pods-COVID-19 Track.release.xcconfig"; sourceTree = "<group>"; };
 		ACC2B60927E7855150325D12 /* Pods_COVID_19_TrackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_19_TrackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C624797B241583E700A41898 /* BluetoothTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothTracker.swift; sourceTree = "<group>"; };
+		C624797F2415976F00A41898 /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		C62479812415979E00A41898 /* BluetoothBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothBeacon.swift; sourceTree = "<group>"; };
 		C65E070924154B75000C981C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C65E070B24154E94000C981C /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		C65E070D24154EEF000C981C /* Resolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
@@ -70,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				015F9628AAD7E0D704CB6DCE /* Pods_COVID_19_Track.framework in Frameworks */,
+				C639B20524159F80000BC0A3 /* Pods_COVID_19_Track.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +137,15 @@
 			path = URLRequest;
 			sourceTree = "<group>";
 		};
+		C624797E2415975600A41898 /* Beacon */ = {
+			isa = PBXGroup;
+			children = (
+				C624797F2415976F00A41898 /* Beacon.swift */,
+				C62479812415979E00A41898 /* BluetoothBeacon.swift */,
+			);
+			path = Beacon;
+			sourceTree = "<group>";
+		};
 		C65E071124154EFA000C981C /* Inject */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +186,7 @@
 		C6DE309D2414EC0200D1E0A1 /* COVID-19 Track */ = {
 			isa = PBXGroup;
 			children = (
+				C624797E2415975600A41898 /* Beacon */,
 				C6DE30C62415348300D1E0A1 /* COVID-19 Track.entitlements */,
 				C6B5A0C424153BD40068789F /* views */,
 				C65E071124154EFA000C981C /* Inject */,
@@ -380,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C65E070C24154E94000C981C /* Tracker.swift in Sources */,
+				C62479822415979E00A41898 /* BluetoothBeacon.swift in Sources */,
 				C65E085724154F72000C981C /* URLRequest.swift in Sources */,
 				C624797C241583E700A41898 /* BluetoothTracker.swift in Sources */,
 				C65E08872415510B000C981C /* ParameterEncoding.swift in Sources */,
@@ -390,6 +405,7 @@
 				C65E070A24154B75000C981C /* HomeViewModel.swift in Sources */,
 				C65E070F24154EEF000C981C /* Resolver.swift in Sources */,
 				C6DE30A12414EC0200D1E0A1 /* SceneDelegate.swift in Sources */,
+				C62479802415976F00A41898 /* Beacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -535,7 +551,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -552,6 +568,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "COVID-19 Track/COVID-19 Track.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = BSCYSSA7CD;
 				INFOPLIST_FILE = "COVID-19 Track/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -574,6 +591,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "COVID-19 Track/COVID-19 Track.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = BSCYSSA7CD;
 				INFOPLIST_FILE = "COVID-19 Track/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

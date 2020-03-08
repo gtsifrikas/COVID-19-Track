@@ -11,8 +11,13 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var beacon = BluetoothBeacon()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setUpDependencies(container: Resolver.root)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.beacon.startBroadcasting()
+        }
         return true
     }
     
