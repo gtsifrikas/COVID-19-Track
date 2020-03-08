@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
+import RxRelay
 
 class HomeViewModel {
     
@@ -19,17 +20,17 @@ class HomeViewModel {
         return _switchValue.asDriver(onErrorJustReturn: false)
     }()
     
-    private var _switchValue: Driver<Bool>!
+    private var _switchValue = BehaviorRelay<Bool>(value: false)
     
     lazy var activityIsSpinning: Driver<Bool> = {
         return _activityIsSpinning.asDriver(onErrorJustReturn: false)
     }()
-    private var _activityIsSpinning = PublishRelay<Bool>()
+    private var _activityIsSpinning = BehaviorRelay<Bool>(value: false)
     
     lazy var readyLabelValue: Driver<String> = {
         _readyLabelValue.asDriver(onErrorJustReturn: "Something went really wrong!")
     }()
-    private var _readyLabelValue = PublishRelay<String>()
+    private var _readyLabelValue = BehaviorRelay<String>(value: "Not ready yet.")
     
     var debug: Driver<String>!
     
@@ -40,14 +41,54 @@ class HomeViewModel {
         case newInteraction(interaction: Interaction)
     }
     
+    private struct State {
+        var interactionsSoFar: [Interaction]
+        let debugLabel: String
+        
+        static var initial = State(interactionsSoFar: [], debugLabel: "")
+    }
+    
     func configure(switchValue: Observable<Bool>) {
-        tracker.start().subscribe().disposed(by: disposeBag)
+        
+        tracker
+            .start()
+            .do(onSubscribe: {[weak self] in
+                self?._readyLabelValue.accept("Starting..")
+                self?._activityIsSpinning.accept(true)
+            })
+            .subscribe(
+                onNext: {[weak self] _ in
+                    self?._switchValue.accept(true)
+                },
+                onError: {[weak self] (error) in
+                    self?._switchValue.accept(false)
+            })
+            .disposed(by: disposeBag)
+        
         
         let interactions = tracker.interactions.map(Action.newInteraction)
-        let switchPressed = switchValue.map(Action.switchValue)
         
-        let actions = Observable.merge([interactions, switchPressed])
+        let actions = Observable.merge([interactions])
         
+        let behavior = actions.scan(State.initial) { (currentState, newAction) -> State in
+            var newState = currentState
+            
+            switch newAction {
+                
+            case .switchValue(newValue: _):
+                break
+            case .newInteraction(interaction: let interaction):
+                newState.interactionsSoFar += [interaction]
+            }
+            
+            return newState
+        }.share(replay: 1, scope: .forever)
         
+        debug = behavior
+            .map({ $0.interactionsSoFar })
+            .map({ (interactions) -> String in
+                return "#\(interactions.count) interactions so far"
+            })
+            .asDriver(onErrorJustReturn: "Whoops!")
     }
 }
