@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setUpDependencies(container: Resolver) {
-        container.register(Tracker.self) { FakeTracker() }
+        container.register(Tracker.self) { BluetoothTracker() }
     }
 
     // MARK: UISceneSession Lifecycle

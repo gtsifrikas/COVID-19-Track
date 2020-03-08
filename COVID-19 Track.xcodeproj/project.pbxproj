@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		015F9628AAD7E0D704CB6DCE /* Pods_COVID_19_Track.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF87B0B6DBF50479E31B5CF9 /* Pods_COVID_19_Track.framework */; };
 		BDE1D244BD8CDBD24607C908 /* Pods_COVID_19_TrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC2B60927E7855150325D12 /* Pods_COVID_19_TrackTests.framework */; };
+		C624797C241583E700A41898 /* BluetoothTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C624797B241583E700A41898 /* BluetoothTracker.swift */; };
 		C65E070A24154B75000C981C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E070924154B75000C981C /* HomeViewModel.swift */; };
 		C65E070C24154E94000C981C /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E070B24154E94000C981C /* Tracker.swift */; };
 		C65E070F24154EEF000C981C /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E070D24154EEF000C981C /* Resolver.swift */; };
@@ -41,6 +42,7 @@
 		7DF90784F72F41F283DDED66 /* Pods-COVID-19 TrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 TrackTests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 TrackTests/Pods-COVID-19 TrackTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7F0393FB624BAC1C3541FCC /* Pods-COVID-19 Track.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Track.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Track/Pods-COVID-19 Track.release.xcconfig"; sourceTree = "<group>"; };
 		ACC2B60927E7855150325D12 /* Pods_COVID_19_TrackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_19_TrackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C624797B241583E700A41898 /* BluetoothTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothTracker.swift; sourceTree = "<group>"; };
 		C65E070924154B75000C981C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C65E070B24154E94000C981C /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		C65E070D24154EEF000C981C /* Resolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
@@ -103,6 +105,34 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C62479792415821700A41898 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C6DE30A42414EC0200D1E0A1 /* Main.storyboard */,
+				C6DE30A22414EC0200D1E0A1 /* HomeViewController.swift */,
+				C65E070924154B75000C981C /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C624797A241583D500A41898 /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				C65E070B24154E94000C981C /* Tracker.swift */,
+				C624797B241583E700A41898 /* BluetoothTracker.swift */,
+			);
+			path = Tracker;
+			sourceTree = "<group>";
+		};
+		C624797D2415912200A41898 /* URLRequest */ = {
+			isa = PBXGroup;
+			children = (
+				C65E08862415510B000C981C /* ParameterEncoding.swift */,
+				C65E085624154F72000C981C /* URLRequest.swift */,
+			);
+			path = URLRequest;
+			sourceTree = "<group>";
+		};
 		C65E071124154EFA000C981C /* Inject */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,17 +176,14 @@
 				C6DE30C62415348300D1E0A1 /* COVID-19 Track.entitlements */,
 				C6B5A0C424153BD40068789F /* views */,
 				C65E071124154EFA000C981C /* Inject */,
+				C62479792415821700A41898 /* Home */,
+				C624797D2415912200A41898 /* URLRequest */,
+				C624797A241583D500A41898 /* Tracker */,
 				C6DE309E2414EC0200D1E0A1 /* AppDelegate.swift */,
 				C6DE30A02414EC0200D1E0A1 /* SceneDelegate.swift */,
-				C6DE30A22414EC0200D1E0A1 /* HomeViewController.swift */,
-				C65E08862415510B000C981C /* ParameterEncoding.swift */,
-				C65E085624154F72000C981C /* URLRequest.swift */,
-				C6DE30A42414EC0200D1E0A1 /* Main.storyboard */,
 				C6DE30A72414EC0600D1E0A1 /* Assets.xcassets */,
 				C6DE30A92414EC0600D1E0A1 /* LaunchScreen.storyboard */,
 				C6DE30AC2414EC0600D1E0A1 /* Info.plist */,
-				C65E070924154B75000C981C /* HomeViewModel.swift */,
-				C65E070B24154E94000C981C /* Tracker.swift */,
 			);
 			path = "COVID-19 Track";
 			sourceTree = "<group>";
@@ -354,6 +381,7 @@
 			files = (
 				C65E070C24154E94000C981C /* Tracker.swift in Sources */,
 				C65E085724154F72000C981C /* URLRequest.swift in Sources */,
+				C624797C241583E700A41898 /* BluetoothTracker.swift in Sources */,
 				C65E08872415510B000C981C /* ParameterEncoding.swift in Sources */,
 				C6DE30A32414EC0200D1E0A1 /* HomeViewController.swift in Sources */,
 				C6DE309F2414EC0200D1E0A1 /* AppDelegate.swift in Sources */,

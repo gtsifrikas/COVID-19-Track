@@ -12,6 +12,8 @@ import RxSwift
 import RxCocoa
 import RxRelay
 
+
+
 class HomeViewModel {
     
     @Injected private var tracker: Tracker
@@ -49,19 +51,30 @@ class HomeViewModel {
     }
     
     func configure(switchValue: Observable<Bool>) {
+        _switchValue.accept(false)
+        _activityIsSpinning.accept(false)
+        _readyLabelValue.accept("Idle")
         
-        tracker
-            .start()
-            .do(onSubscribe: {[weak self] in
-                self?._readyLabelValue.accept("Starting..")
-                self?._activityIsSpinning.accept(true)
-            })
+        let switchValue = switchValue.skip(1)
+        
+        switchValue.flatMap {[weak self] (value) -> Observable<Void> in
+            if value {
+                return self!.tracker.start()
+            } else {
+                return self!.tracker.stop()
+            }
+        }
             .subscribe(
                 onNext: {[weak self] _ in
+                    self?._readyLabelValue.accept("Started!")
                     self?._switchValue.accept(true)
+                    self?._activityIsSpinning.accept(true)
+                    self?._activityIsSpinning.accept(false)
                 },
                 onError: {[weak self] (error) in
+                    self?._readyLabelValue.accept("Failed")
                     self?._switchValue.accept(false)
+                    self?._activityIsSpinning.accept(false)
             })
             .disposed(by: disposeBag)
         
@@ -87,8 +100,11 @@ class HomeViewModel {
         debug = behavior
             .map({ $0.interactionsSoFar })
             .map({ (interactions) -> String in
-                return "#\(interactions.count) interactions so far"
+                return "#\(interactions.count) interactions so far \n \(interactions.map{ $0.other }.reduce("", { "\($0)\n\($1)" }))"
             })
+            .debug()
             .asDriver(onErrorJustReturn: "Whoops!")
+        
+        
     }
 }

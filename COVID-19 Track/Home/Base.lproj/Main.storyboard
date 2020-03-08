@@ -33,10 +33,21 @@
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="0DD-xY-rOI">
                                             <rect key="frame" x="177.66666666666666" y="233" width="20" height="20"/>
                                         </activityIndicatorView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="edq-z4-atv">
+                                            <rect key="frame" x="8" y="278" width="359" height="512"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="edq-z4-atv" secondAttribute="trailing" constant="8" id="BYX-aG-RiX"/>
+                                        <constraint firstItem="edq-z4-atv" firstAttribute="top" secondItem="c06-fi-KI0" secondAttribute="bottom" constant="18.329999999999998" id="DAY-it-azY"/>
                                         <constraint firstItem="0DD-xY-rOI" firstAttribute="centerX" secondItem="c06-fi-KI0" secondAttribute="centerX" id="T33-Dj-Tf4"/>
+                                        <constraint firstItem="edq-z4-atv" firstAttribute="leading" secondItem="5sS-3c-ZZz" secondAttribute="leading" constant="8" id="dtn-rw-R6a"/>
                                         <constraint firstItem="0DD-xY-rOI" firstAttribute="centerY" secondItem="c06-fi-KI0" secondAttribute="centerY" id="mov-LV-yNR"/>
+                                        <constraint firstAttribute="bottom" secondItem="edq-z4-atv" secondAttribute="bottom" constant="22" id="qh9-En-6pi"/>
                                         <constraint firstItem="c06-fi-KI0" firstAttribute="centerX" secondItem="5sS-3c-ZZz" secondAttribute="centerX" id="qlL-Sw-POW"/>
                                     </constraints>
                                 </view>
@@ -90,13 +101,14 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="0DD-xY-rOI" id="oJW-Zh-kmS"/>
+                        <outlet property="debugLabel" destination="edq-z4-atv" id="pf8-vM-x6A"/>
                         <outlet property="enableServiceSwitch" destination="dIu-v9-Bo1" id="fck-iA-e3g"/>
                         <outlet property="statusLabel" destination="c06-fi-KI0" id="t65-O7-f9Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="138.40000000000001" y="137.4384236453202"/>
         </scene>
     </scenes>
     <resources>
