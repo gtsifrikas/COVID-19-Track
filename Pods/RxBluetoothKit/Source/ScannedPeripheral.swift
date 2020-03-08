@@ -12,7 +12,7 @@ public class ScannedPeripheral {
     public let advertisementData: AdvertisementData
 
     /// Scanned peripheral's RSSI value.
-    public let rssi: NSNumber
+        public let rssi: NSNumber
 
     init(peripheral: Peripheral, advertisementData: AdvertisementData, rssi: NSNumber) {
         self.peripheral = peripheral
