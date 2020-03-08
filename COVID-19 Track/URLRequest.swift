@@ -2,13 +2,51 @@
 //  URLRequest+Shield.swift
 //  workable
 //
-//  Created by Eleni Papanikolopoulou on 02/10/2018.
-//  Copyright © 2018 Workable. All rights reserved.
+//  Created by George Tsifrikas on 08/03/2020.
+//  Copyright © 2020 George Tsifrikas. All rights reserved.
 //
 
 import Foundation
-import Alamofire
-import Core
+//import Alamofire
+
+public struct HttpHeader {
+    public let name: String
+    public let value: String
+
+    public init(name: String, value: String) {
+        self.name = name
+        self.value = value
+    }
+}
+
+enum HttpHeaderContentType {
+    case json
+    case formUrlEncoded
+}
+
+public struct Headers {
+
+    public static let AUTHORIZATION_HEADER = "Authorization"
+    public static let USER_AGENT_HEADER = "User-Agent"
+    public static let WORKABLE_WEB_VIEW_USER_AGENT = "Workable-User-Agent"
+    public static let supportedActionRequests = "X_Supported_Action_Requests"
+    public static let protobufContentType: HttpHeader = HttpHeader(name: "Content-Type", value: "application/protobuf")
+    public static let jsonContentType: HttpHeader = HttpHeader(name: "Content-Type", value: "application/json")
+    public static let formUrlEncodedContentType: HttpHeader = HttpHeader(name: "Content-Type", value: "application/x-www-form-urlencoded; charset=utf-8")
+}
+
+public enum HTTPMethodType: String {
+    case GET
+    case PUT
+    case POST
+    case DELETE
+    case PATCH
+}
+
+extension URLRequest: URLRequestConvertible {
+    /// Returns a URL request or throws if an `Error` was encountered.
+    public func asURLRequest() throws -> URLRequest { return self }
+}
 
 extension URLRequest {
     fileprivate static func addPathComponents(_ path: String, _ url: inout URL) {
@@ -28,7 +66,7 @@ extension URLRequest {
     
     fileprivate static func encodeParameters(_ request: inout URLRequest, _ parameters: [String: Any]?) {
         // Encode parameters
-        let encoder = Alamofire.URLEncoding(destination: .methodDependent)
+        let encoder = URLEncoding(destination: .methodDependent)
         if let requestWithParams = try? encoder.encode(request, with: parameters) {
             request = requestWithParams
         } else {
@@ -45,7 +83,6 @@ extension URLRequest {
             contentTypeHeader = Headers.jsonContentType
         }
         return [
-            HttpHeader(name: Headers.USER_AGENT_HEADER, value: UIDevice.current.userAgent),
             HttpHeader(name: "Accept", value: "application/json"),
             contentTypeHeader
         ]

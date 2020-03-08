@@ -12,7 +12,7 @@ target 'COVID-19 Track' do
   
   pod 'RxBluetoothKit'
   pod 'RxCocoa'
-  pod 'Alamofire'
+#  pod 'Alamofire'
 
   target 'COVID-19 TrackTests' do
     inherit! :search_paths

@@ -14,6 +14,7 @@
 		C65E070F24154EEF000C981C /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E070D24154EEF000C981C /* Resolver.swift */; };
 		C65E071024154EEF000C981C /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E070E24154EEF000C981C /* Inject.swift */; };
 		C65E085724154F72000C981C /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E085624154F72000C981C /* URLRequest.swift */; };
+		C65E08872415510B000C981C /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E08862415510B000C981C /* ParameterEncoding.swift */; };
 		C6B5A0C624153BE60068789F /* BigSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B5A0C524153BE60068789F /* BigSwitch.swift */; };
 		C6DE309F2414EC0200D1E0A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DE309E2414EC0200D1E0A1 /* AppDelegate.swift */; };
 		C6DE30A12414EC0200D1E0A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DE30A02414EC0200D1E0A1 /* SceneDelegate.swift */; };
@@ -45,6 +46,7 @@
 		C65E070D24154EEF000C981C /* Resolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		C65E070E24154EEF000C981C /* Inject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		C65E085624154F72000C981C /* URLRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		C65E08862415510B000C981C /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		C6B5A0C524153BE60068789F /* BigSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigSwitch.swift; sourceTree = "<group>"; };
 		C6DE309B2414EC0200D1E0A1 /* COVID-19 Track.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID-19 Track.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DE309E2414EC0200D1E0A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				C6DE309E2414EC0200D1E0A1 /* AppDelegate.swift */,
 				C6DE30A02414EC0200D1E0A1 /* SceneDelegate.swift */,
 				C6DE30A22414EC0200D1E0A1 /* HomeViewController.swift */,
+				C65E08862415510B000C981C /* ParameterEncoding.swift */,
 				C65E085624154F72000C981C /* URLRequest.swift */,
 				C6DE30A42414EC0200D1E0A1 /* Main.storyboard */,
 				C6DE30A72414EC0600D1E0A1 /* Assets.xcassets */,
@@ -351,6 +354,7 @@
 			files = (
 				C65E070C24154E94000C981C /* Tracker.swift in Sources */,
 				C65E085724154F72000C981C /* URLRequest.swift in Sources */,
+				C65E08872415510B000C981C /* ParameterEncoding.swift in Sources */,
 				C6DE30A32414EC0200D1E0A1 /* HomeViewController.swift in Sources */,
 				C6DE309F2414EC0200D1E0A1 /* AppDelegate.swift in Sources */,
 				C6B5A0C624153BE60068789F /* BigSwitch.swift in Sources */,
