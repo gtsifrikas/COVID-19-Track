@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.0.2)
   - RxBluetoothKit (5.3.0):
     - RxSwift (~> 5.0)
   - RxCocoa (5.0.1):
@@ -11,12 +12,14 @@ PODS:
     - RxSwift (~> 5)
 
 DEPENDENCIES:
+  - Alamofire
   - RxBluetoothKit
   - RxCocoa
   - RxTest
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - RxBluetoothKit
     - RxCocoa
     - RxRelay
@@ -24,12 +27,13 @@ SPEC REPOS:
     - RxTest
 
 SPEC CHECKSUMS:
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
   RxBluetoothKit: 0e781978e8a0df70ac3c611dcf44800b76c69f8a
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   RxTest: 0132f952a61da82d5233abedaa559df91e5330e5
 
-PODFILE CHECKSUM: ae632d325f85c081032a21c301c0d68a20011b96
+PODFILE CHECKSUM: 2786b00bfa2b7490cdadba2db47199b2a334a981
 
 COCOAPODS: 1.9.0
