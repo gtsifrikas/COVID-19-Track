@@ -1,4 +1,4 @@
-use_modules!
+use_frameworks!
 inhibit_all_warnings!
 install! 'cocoapods',
 :disable_input_output_paths => true,
