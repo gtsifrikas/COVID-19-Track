@@ -24,6 +24,8 @@
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>This is required for this app to be able to privately track the spread of the Coronavirus / COVID-19</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>This is required for this app to be able to privately track the spread of the Coronavirus / COVID-19 Peripheral</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -47,6 +49,7 @@
 	<array>
 		<string>bluetooth-central</string>
 		<string>bluetooth-peripheral</string>
+		<string>external-accessory</string>
 		<string>fetch</string>
 		<string>location</string>
 		<string>processing</string>
