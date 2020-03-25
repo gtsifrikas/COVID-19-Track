@@ -17,9 +17,14 @@ class BluetoothBeacon: Beacon {
     public static let serviceUUID = CBUUID(string: "acd58b70-d2c5-4612-91d6-eb4f385c2414")
     
     private var disposeBag = DisposeBag()
-    public static var peripheralManager = PeripheralManager(
-//        queue: .global(qos: .background),
+    private static var peripheralManager = PeripheralManager(
+        queue: .global(qos: .background),
         options: [CBPeripheralManagerOptionRestoreIdentifierKey: NSString("Coronavirus_Advertiser")])
+    
+    public required init() {
+        // This is used to start the peripheral manager before we beacon our signal
+        _ = BluetoothBeacon.peripheralManager
+    }
     
     func startBroadcasting() {
         BluetoothBeacon.peripheralManager.startAdvertising([

@@ -32,6 +32,7 @@ class BluetoothTracker: Tracker {
     init() {
         let timerQueue = DispatchQueue(label: "com.gtsifrikas.rxbluetoothkit.timer")
         scheduler = ConcurrentDispatchQueueScheduler(queue: timerQueue)
+        _ = BluetoothTracker.centralManager
     }
     
     func start() -> Observable<Void> {
