@@ -16,7 +16,7 @@ import RxRelay
 class BluetoothTracker: Tracker {
     
     public static var centralManager = CentralManager(
-        queue: .global(qos: .background),
+//        queue: .global(qos: .background),
         options: [CBCentralManagerOptionRestoreIdentifierKey: NSString("Coronavirus_Scanner")],
         onWillRestoreCentralManagerState: { (restoreState) in
             print("RESTORED")
@@ -42,13 +42,14 @@ class BluetoothTracker: Tracker {
             .filter {
                 $0 == .poweredOn
             }
-            .subscribeOn(MainScheduler.instance)
+            .observeOn(MainScheduler.instance)
             .share(replay: 1, scope: .forever)
             .map{ _ in }
             
             bluetoothReady
                 .flatMap { _ -> Observable<ScannedPeripheral> in
-                    return BluetoothTracker.centralManager.scanForPeripherals(withServices: [BluetoothBeacon.serviceUUID])
+                    let options: [String: Any] = [CBCentralManagerScanOptionAllowDuplicatesKey: true]
+                    return BluetoothTracker.centralManager.scanForPeripherals(withServices: [BluetoothBeacon.serviceUUID], options: options)
                 }
                 .flatMap({ (peripheral) -> Observable<Interaction> in
                     
@@ -67,13 +68,7 @@ class BluetoothTracker: Tracker {
                 })
                 .subscribe(_interactions).disposed(by: disposeBag)
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            listenForService()
-        }
-        
-        
-        
+        listenForService()
         return .just(())
     }
     

@@ -18,11 +18,10 @@ class BluetoothBeacon: Beacon {
     
     private var disposeBag = DisposeBag()
     public static var peripheralManager = PeripheralManager(
-        queue: .global(),
+//        queue: .global(qos: .background),
         options: [CBPeripheralManagerOptionRestoreIdentifierKey: NSString("Coronavirus_Advertiser")])
     
     func startBroadcasting() {
-        
         BluetoothBeacon.peripheralManager.startAdvertising([
             CBAdvertisementDataLocalNameKey: "Coronavirus Tracking",
             CBAdvertisementDataServiceUUIDsKey: [BluetoothBeacon.serviceUUID]
@@ -30,7 +29,7 @@ class BluetoothBeacon: Beacon {
         .subscribe()
         .disposed(by: disposeBag)
     }
-    
+        
     func stopBroadcasting() {
         disposeBag = DisposeBag()
     }

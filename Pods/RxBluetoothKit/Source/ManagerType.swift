@@ -28,7 +28,7 @@ public extension ManagerType {
         return .deferred { [weak self] in
             guard let strongSelf = self else { throw BluetoothError.destroyed }
             let statesObservable = strongSelf.observeState()
-                .startWith(strongSelf.state)
+//                .startWith(strongSelf.state)
                 .filter { $0 != state && BluetoothError(state: $0) != nil }
                 .map { state -> T in throw BluetoothError(state: state)! }
             return .absorb(statesObservable, observable)

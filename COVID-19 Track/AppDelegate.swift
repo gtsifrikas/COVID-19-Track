@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxBluetoothKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,9 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setUpDependencies(container: Resolver.root)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.beacon.startBroadcasting()
         }
+        
+        RxBluetoothKitLog.setLogLevel(.debug)
+        
         return true
     }
     
